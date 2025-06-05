@@ -9,10 +9,10 @@ const App = () => {
   const [selectedSkip, setSelectedSkip] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white">
+    <div className="min-h-screen bg-gray-300 accent text-white">
       <Router>
         <Navbar />
-        <main className="main-content">
+        <main className="flex-grow overflow-y-auto pb-20">
           <Routes>
             <Route path="/" element={<SkipSectionCard selectedSkip={selectedSkip} setSelectedSkip={setSelectedSkip} />} />
           </Routes>

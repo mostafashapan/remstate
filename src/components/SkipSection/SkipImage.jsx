@@ -1,67 +1,34 @@
-import React from 'react';
-import { Box, Chip, Typography } from '@mui/material';
+import React, { useState } from 'react';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 const SkipImage = ({ skip }) => {
+  const [hover, setHover] = useState(false);
+
   return (
-    <Box className="relative">
-      <img 
-        src={`https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`} 
-        alt={`${skip.size} Yard Skip`} 
-        className="w-full h-36 md:h-48 object-cover rounded-md mb-4"
+    <div className="relative h-48 w-full overflow-hidden rounded-lg border border-gray-200">
+      <img
+        src={`https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`}
+        alt={`${skip.size} Yard Skip`}
+        className={`w-full h-full object-cover transition-transform duration-300 ${
+          hover ? 'scale-105' : 'scale-100'
+        }`}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
       />
-      
-      <Chip
-        label={`${skip.size} Yards`}
-        sx={{
-          position: 'absolute',
-          top: 12,
-          right: 8,
-          zIndex: 20,
-          backgroundColor: '#0037C1',
-          color: 'white',
-          fontWeight: 'medium',
-          boxShadow: 1
-        }}
-        size="small"
-      />
-      
+
+      {/* Size badge */}
+      <div className="absolute top-3 right-3 px-2 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
+        {skip.size} YD
+      </div>
+
+      {/* Warning message */}
       {!skip.allowed_on_road && (
-        <Box 
-          sx={{
-            position: 'absolute',
-            bottom: 12,
-            left: 8,
-            zIndex: 20,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            backgroundColor: 'rgba(0, 0, 0, 0.9)',
-            backdropFilter: 'blur(4px)',
-            borderRadius: '8px',
-            px: '12px',
-            py: '6px'
-          }}
-        >
-          <WarningAmberIcon sx={{ 
-            color: '#eab308', 
-            fontSize: '16px',
-            flexShrink: 0
-          }} />
-          <Typography 
-            variant="caption" 
-            sx={{ 
-              color: '#eab308', 
-              fontWeight: 500,
-              fontSize: '0.75rem',
-              lineHeight: '1rem'
-            }}
-          >
-            Not Allowed On The Road
-          </Typography>
-        </Box>
+        <div className="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-lg">
+          <WarningAmberIcon style={{ width: '1rem', height: '1rem' }} />
+          <span>Not Allowed On The Road</span>
+        </div>
       )}
-    </Box>
+    </div>
   );
 };
 

@@ -1,13 +1,14 @@
+// Divider.jsx - Animated gradient divider
 import React from 'react';
 import PropTypes from 'prop-types';
 
 const Divider = ({ active = false }) => {
-  const baseClasses = "w-16 h-px";
-  const activeClasses = "bg-primary-blue";
-  const inactiveClasses = "bg-gray-800"; // #2A2A2A equivalent
-
   return (
-    <div className={`${baseClasses} ${active ? activeClasses : inactiveClasses}`} />
+    <div className={`flex-1 h-0.5 mx-2 mt-6 transition-all duration-500 ${
+      active ? 
+        'bg-gradient-to-r from-blue-500/80 via-cyan-400/80 to-blue-500/80' : 
+        'bg-gray-700'
+    }`} />
   );
 };
 

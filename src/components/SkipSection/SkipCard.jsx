@@ -5,36 +5,39 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const SkipCard = ({ skip, isSelected, onSelect }) => {
   return (
-    <div 
-      className={`group relative rounded-lg border-2 p-4 md:p-6 transition-all
-        ${isSelected ? 'border-blue-700 bg-blue-700/10' : 'border-gray-800 hover:border-blue-700/50'}
-        bg-gray-900 text-white cursor-pointer`}
+    <div
+      className={`relative rounded-xl border-2 p-4 transition-all duration-300 ${
+        isSelected ? 'border-blue-600 bg-blue-50' : 'border-gray-200 bg-white hover:border-blue-300'
+      } shadow-md hover:shadow-lg cursor-pointer`}
       onClick={() => onSelect(skip.id)}
     >
       {isSelected && (
-        <div className="absolute top-3 right-3 md:top-4 md:right-4 text-blue-700">
-          <CheckIcon className="w-5 h-5 md:w-6 md:h-6" />
+        <div className="absolute top-3 right-3 text-blue-600">
+          <CheckIcon style={{ width: '1.25rem', height: '1.25rem' }} />
         </div>
       )}
-      
+
       <SkipImage skip={skip} />
-      
-      <h3 className="text-lg md:text-xl font-bold mb-2 text-white">{skip.size} Yard Skip</h3>
-      <p className="text-sm text-gray-400 mb-4 md:mb-6">{skip.hire_period_days} day hire period</p>
-      
-      <div className="flex justify-between items-center mb-4">
-        <div>
-          <span className="text-xl md:text-2xl font-bold text-blue-700">£{skip.price_before_vat}</span>
+
+      <div className="mt-4">
+        <h3 className="text-lg font-bold text-gray-900">{skip.size} Yard Skip</h3>
+        <p className="text-sm text-gray-600 mt-1">{skip.hire_period_days} day hire period</p>
+        
+        <div className="mt-4 flex justify-between items-center">
+          <span className="text-2xl font-bold text-blue-600">£{skip.price_before_vat}</span>
+          
+          <button
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+              isSelected
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+            }`}
+          >
+            <span>{isSelected ? 'Selected' : 'Select'}</span>
+            {!isSelected && <ArrowForwardIcon style={{ width: '1rem', height: '1rem' }} />}
+          </button>
         </div>
       </div>
-      
-      <button 
-        className={`w-full py-2.5 md:py-3 px-4 rounded-md transition-all flex items-center justify-center space-x-2
-          ${isSelected ? 'bg-blue-700 text-white hover:bg-blue-800' : 'bg-gray-800 text-white hover:bg-gray-700 hover:border-blue-700'}`}
-      >
-        <span>{isSelected ? 'Selected' : 'Select This Skip'}</span>
-        {!isSelected && <ArrowForwardIcon className="w-4 h-4" />}
-      </button>
     </div>
   );
 };
