@@ -25,7 +25,7 @@ function SkipSectionCard({ selectedSkip, setSelectedSkip }) {
   );
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className="max-w-7xl mx-auto px-2 py-12">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-white mb-3">Choose Your Skip Size</h2>
         <p className="text-white max-w-2xl mx-auto text-lg md:text-xl font-semibold text-center">
@@ -35,15 +35,16 @@ function SkipSectionCard({ selectedSkip, setSelectedSkip }) {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skipData.map((skip) => (
-          <SkipCard 
-            key={skip.id}
-            skip={skip}
-            isSelected={selectedSkip?.id === skip.id}
-            onSelect={handleSelectSkip}
-          />
-        ))}
-      </div>
+  {skipData.map((skip) => (
+    <SkipCard 
+      key={skip.id}
+      skip={skip}
+      isSelected={selectedSkip?.id === skip.id}
+      onSelect={handleSelectSkip}
+    />
+  ))}
+</div>
+
     </section>
   );
 }

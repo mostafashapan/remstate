@@ -5,16 +5,17 @@ const SkipImage = ({ skip }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <div className="relative h-48 w-full overflow-hidden rounded-lg border border-gray-200">
-      <img
-        src={`https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`}
-        alt={`${skip.size} Yard Skip`}
-        className={`w-full h-full object-cover transition-transform duration-300 ${
-          hover ? 'scale-105' : 'scale-100'
-        }`}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      />
+    <div className="relative aspect-[2/1] w-full overflow-hidden rounded-lg border border-gray-200">
+  <img
+    src={`https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`}
+    alt={`${skip.size} Yard Skip`}
+    className={`w-full h-full object-cover transition-transform duration-300 ${
+      hover ? 'scale-105' : 'scale-100'
+    }`}
+    onMouseEnter={() => setHover(true)}
+    onMouseLeave={() => setHover(false)}
+  />
+
 
       {/* Size badge */}
       <div className="absolute top-3 right-3 px-2 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
