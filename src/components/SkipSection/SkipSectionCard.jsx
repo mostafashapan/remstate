@@ -34,16 +34,21 @@ function SkipSectionCard({ selectedSkip, setSelectedSkip }) {
 
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-  {skipData.map((skip) => (
-    <SkipCard 
-      key={skip.id}
-      skip={skip}
-      isSelected={selectedSkip?.id === skip.id}
-      onSelect={handleSelectSkip}
-    />
-  ))}
+      <div className="px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col space-y-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:space-y-0">
+
+    {skipData.map((skip) => (
+      <SkipCard 
+        key={skip.id}
+        skip={skip}
+        isSelected={selectedSkip?.id === skip.id}
+        onSelect={handleSelectSkip}
+      />
+    ))}
+  </div>
 </div>
+
+
 
     </section>
   );
