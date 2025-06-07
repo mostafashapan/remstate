@@ -13,7 +13,7 @@ import Divider from './shared/Divider';
 const Navbar = () => {
   return (
     <nav
-    className="w-full bg-white/10 border-b border-white/20 sticky top-0 z-50 shadow-sm backdrop-blur-md"
+    className="w-full bg-white/10 border-b border-white/20  top-0 z-50 shadow-sm backdrop-blur-md"
     aria-label="Progress steps navigation"
   >
   

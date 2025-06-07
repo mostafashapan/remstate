@@ -17,7 +17,7 @@ const Footer = ({
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 100, opacity: 0 }}
       transition={{ type: 'spring', damping: 25, stiffness: 120 }}
-      className={`fixed bottom-0 left-0 right-0 bg-white/20 border-t border-gray-200/30 shadow-lg p-4 z-50 ${className}`}
+      className={`fixed bottom-0 left-0 right-0 bg-gray-300 shadow-lg p-4 z-50 ${className}`}
 
       aria-labelledby="footer-heading"
     >
